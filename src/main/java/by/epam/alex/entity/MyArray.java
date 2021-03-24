@@ -12,7 +12,7 @@ public class MyArray {
     int size;
 
     MyArray(){
-        this.size=10;
+        this.size=5;
         this.array=new int[size];
         setArray();
     }
