@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
-public class LogicTest extends TestCase {
+public class SleuthTest extends TestCase {
     static final Logger logger= LogManager.getLogger();
 
    @Test
