@@ -1,6 +1,6 @@
 package com.epam.alex.sources;
 
-import by.epam.alex.entity.MyArray;
+import com.epam.alex.entity.MyArray;
 
 public class Changer {
 

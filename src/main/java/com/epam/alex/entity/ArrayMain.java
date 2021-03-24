@@ -1,4 +1,4 @@
-package by.epam.alex.entity;
+package com.epam.alex.entity;
 
 import com.epam.alex.sources.Definer;
 import com.epam.alex.sources.Sleuth;

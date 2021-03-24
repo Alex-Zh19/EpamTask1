@@ -1,4 +1,4 @@
-package by.epam.alex.entity;
+package com.epam.alex.entity;
 
 import java.util.Arrays;
 import java.util.Objects;
