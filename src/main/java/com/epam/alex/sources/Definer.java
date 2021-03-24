@@ -1,38 +1,40 @@
 package com.epam.alex.sources;
 
+import by.epam.alex.entity.MyArray;
+
 public class Definer {
 
-    public double average(int []array){
+    public double average(MyArray array){
         double result=0.0;
-        for(int i:array){
-            result+=i;
-        }
-        result=result/(array.length+1);
+      for(int i=0;i<array.getSize();i++){
+          result+= array.getElement(i);
+      }
+        result=result/(array.getSize());
         return result;
     }
 
-    public int sum(int []array){
+    public int sum(MyArray array){
         int sum=0;
-        for (int i:array){
-            sum+=i;
+        for(int i=0;i<array.getSize();i++){
+            sum+= array.getElement(i);
         }
         return sum;
     }
 
-    public int countOfPositive(int []array){
+    public int countOfPositive(MyArray array){
         int count =0;
-        for(int i:array){
-            if(i>0){
+        for(int i=0;i<array.getSize();i++){
+            if(array.getElement(i)>0){
                 count++;
             }
         }
         return count;
     }
 
-    public int countOfNegative(int []array){
+    public int countOfNegative(MyArray array){
         int count =0;
-        for(int i:array){
-            if(i<0){
+        for(int i=0;i<array.getSize();i++){
+            if(array.getElement(i)<0){
                 count++;
             }
         }

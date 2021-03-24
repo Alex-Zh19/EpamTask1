@@ -1,13 +1,10 @@
 package by.epam.alex.entity;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.Arrays;
 import java.util.Objects;
 
 public class MyArray {
-    static final Logger logger=LogManager.getLogger();
+
     int []array;
     int size;
 
@@ -45,6 +42,19 @@ public class MyArray {
         return  this.size;
     }
 
+    public int getElement(int pos){
+        if(pos<array.length&&pos>=0){
+            return array[pos];
+        }
+       return -111;
+    }
+
+    public void setElement(int pos,int el){
+        if(pos<array.length&&pos>=0){
+            array[pos]=el;
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,5 +68,13 @@ public class MyArray {
         int result = Objects.hash(size);
         result = 31 * result + Arrays.hashCode(array);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "MyArray{" +
+                "array=" + Arrays.toString(array) +
+                ", size=" + size +
+                '}';
     }
 }

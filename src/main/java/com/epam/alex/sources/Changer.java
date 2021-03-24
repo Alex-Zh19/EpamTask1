@@ -1,12 +1,14 @@
 package com.epam.alex.sources;
 
+import by.epam.alex.entity.MyArray;
+
 public class Changer {
 
-    public int[]changeElements(int []array,int replace,int by){
-        for(int i=0;i<array.length;i++)
+    public MyArray changeElements(MyArray array, int replace, int by){
+        for(int i=0;i<array.getSize();i++)
         {
-            if(array[i]==replace){
-                array[i]=by;
+            if(array.getElement(i)==replace){
+                array.setElement(i,by);
             }
         }
         return array;
