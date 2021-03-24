@@ -8,19 +8,19 @@ public class MyArray {
     int []array;
     int size;
 
-    MyArray(){
+    public MyArray(){
         this.size=5;
         this.array=new int[size];
         setArray();
     }
 
-    MyArray(int size){
+    public MyArray(int size){
         this.size=size;
         this.array=new int[size];
         setArray();
     }
 
-    MyArray(int []arr){
+    public MyArray(int []arr){
         this.size=arr.length;
         this.array=new int[size];
         setArray(arr);
