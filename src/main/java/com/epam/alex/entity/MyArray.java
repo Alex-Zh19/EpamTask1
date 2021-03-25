@@ -28,7 +28,7 @@ public class MyArray {
 
     private void setArray(){
         for (int i=0;i<size;i++){
-          array[i]=(int) (0+Math.random()*100);
+          array[i]=(int) (-100+Math.random()*100);
         }
     }
 
