@@ -1,6 +1,6 @@
 package com.epam.alex.sources;
 
-import com.epam.alex.entity.MyArray;
+import com.epam.alex.entity.ArrayEntity;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,10 +15,10 @@ public class ChangerTest {
         //given
         Changer changer=new Changer();
         int []arr=new int[]{5,7,12,7,-1,-2,1,-1,5,7,7,8,5,7};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
 
         int []arr2=new int[]{5,0,12,0,-1,-2,1,-1,5,0,0,8,5,0};
-        MyArray expArrayEntity=new MyArray(arr2);
+        ArrayEntity expArrayEntity=new ArrayEntity(arr2);
         //when
         changer.changeElements(array,7,0);
 

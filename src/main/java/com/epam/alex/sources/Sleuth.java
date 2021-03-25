@@ -1,10 +1,10 @@
 package com.epam.alex.sources;
 
-import com.epam.alex.entity.MyArray;
+import com.epam.alex.entity.ArrayEntity;
 
 public class Sleuth {
 
-    public int min(MyArray array){
+    public int min(ArrayEntity array){
         int min=array.getElement(0);
         for(int i=1;i<array.getSize();i++){
             if(array.getElement(i)<min){
@@ -14,7 +14,7 @@ public class Sleuth {
         return min;
     }
 
-    public int max(MyArray array){
+    public int max(ArrayEntity array){
         int max=array.getElement(0);
         for(int i=1;i<array.getSize();i++){
             if(array.getElement(i)>max){

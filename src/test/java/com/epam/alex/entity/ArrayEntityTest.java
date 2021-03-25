@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class MyArrayTest {
+public class ArrayEntityTest {
 
     @Test
     public void testGetSize() {

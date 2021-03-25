@@ -1,6 +1,6 @@
 package com.epam.alex.sources;
 
-import com.epam.alex.entity.MyArray;
+import com.epam.alex.entity.ArrayEntity;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ public class SleuthTest {
         //given
         Sleuth sleuth=new Sleuth();
         int []arr=new int[]{5,7,12};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
         int exp=5;
 
         //when
@@ -25,7 +25,7 @@ public class SleuthTest {
         //given
         Sleuth sleuth=new Sleuth();
         int []arr=new int[]{5,7,12};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
         int exp=12;
 
         //when

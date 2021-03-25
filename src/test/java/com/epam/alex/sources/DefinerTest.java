@@ -1,6 +1,6 @@
 package com.epam.alex.sources;
 
-import com.epam.alex.entity.MyArray;
+import com.epam.alex.entity.ArrayEntity;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
@@ -10,7 +10,7 @@ public class DefinerTest {
         //given
         Definer definer=new Definer();
         int []arr=new int[]{5,7,12,-6};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
         double exp=4.5;
         //when
         double act=definer.average(array);
@@ -23,7 +23,7 @@ public class DefinerTest {
         //given
         Definer definer=new Definer();
         int []arr=new int[]{5,7,12,-6};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
         int exp=18;
 
         //when
@@ -38,7 +38,7 @@ public class DefinerTest {
         //given
         Definer definer=new Definer();
         int []arr=new int[]{5,7,12,-6,-1,0};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
         int exp=3;
 
         //when
@@ -53,7 +53,7 @@ public class DefinerTest {
         //given
         Definer definer=new Definer();
         int []arr=new int[]{5,7,12,-6,-1,0};
-        MyArray array=new MyArray(arr);
+        ArrayEntity array=new ArrayEntity(arr);
         int exp=2;
         //when
         int act= definer.countOfNegative(array);

@@ -1,10 +1,10 @@
 package com.epam.alex.sources;
 
-import com.epam.alex.entity.MyArray;
+import com.epam.alex.entity.ArrayEntity;
 
 public class Definer {
 
-    public double average(MyArray array){
+    public double average(ArrayEntity array){
         double result=0.0;
       for(int i=0;i<array.getSize();i++){
           result+= array.getElement(i);
@@ -13,7 +13,7 @@ public class Definer {
         return result;
     }
 
-    public int sum(MyArray array){
+    public int sum(ArrayEntity array){
         int sum=0;
         for(int i=0;i<array.getSize();i++){
             sum+= array.getElement(i);
@@ -21,7 +21,7 @@ public class Definer {
         return sum;
     }
 
-    public int countOfPositive(MyArray array){
+    public int countOfPositive(ArrayEntity array){
         int count =0;
         for(int i=0;i<array.getSize();i++){
             if(array.getElement(i)>0){
@@ -31,7 +31,7 @@ public class Definer {
         return count;
     }
 
-    public int countOfNegative(MyArray array){
+    public int countOfNegative(ArrayEntity array){
         int count =0;
         for(int i=0;i<array.getSize();i++){
             if(array.getElement(i)<0){
