@@ -1,14 +1,10 @@
 package com.epam.alex.sources;
 
 import com.epam.alex.entity.ArrayEntity;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class ChangerTest {
-    private final static Logger logger= LogManager.getLogger();
 
     @Test
     public void testChangeElements() {
@@ -23,7 +19,6 @@ public class ChangerTest {
         changer.changeElements(array,7,0);
 
         //then
-        logger.log(Level.INFO,array);
         assertEquals(array,expArrayEntity);
     }
 }
