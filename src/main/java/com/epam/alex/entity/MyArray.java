@@ -3,24 +3,24 @@ package com.epam.alex.entity;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyArray {
+public class ArrayEntity {
 
     int []array;
     int size;
 
-    public MyArray(){
+    public ArrayEntity(){
         this.size=5;
         this.array=new int[size];
         setArray();
     }
 
-    public MyArray(int size){
+    public ArrayEntity(int size){
         this.size=size;
         this.array=new int[size];
         setArray();
     }
 
-    public MyArray(int []arr){
+    public ArrayEntity(int []arr){
         this.size=arr.length;
         this.array=new int[size];
         setArray(arr);
@@ -28,7 +28,7 @@ public class MyArray {
 
     private void setArray(){
         for (int i=0;i<size;i++){
-          array[i]=(int) (0+Math.random()*100);
+          array[i]=(int) (-100+Math.random()*100);
         }
     }
 
@@ -59,7 +59,7 @@ public class MyArray {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MyArray myArray = (MyArray) o;
+        ArrayEntity myArray = (ArrayEntity) o;
         return size == myArray.size && Arrays.equals(array, myArray.array);
     }
 
