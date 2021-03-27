@@ -1,16 +1,12 @@
 package com.epam.alex.sources;
 
 import com.epam.alex.entity.ArrayEntity;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 public class SortingTest {
 
-    static Logger logger= LogManager.getLogger();
     @Test
     public void testBubbleSort() {
         //given
@@ -22,9 +18,6 @@ public class SortingTest {
         ArrayEntity entityExpected=new ArrayEntity(arr2);
         //when
         sorting.bubbleSort(entityActual);
-
-        logger.log(Level.INFO,entityActual);
-        logger.log(Level.INFO,entityExpected);
         //then
         assertEquals(entityActual,entityExpected);
     }
@@ -40,9 +33,6 @@ public class SortingTest {
         ArrayEntity entityExpected=new ArrayEntity(arr2);
         //when
         sorting.insertionSort(entityActual);
-
-        logger.log(Level.INFO,entityActual);
-        logger.log(Level.INFO,entityExpected);
         //then
         assertEquals(entityActual,entityExpected);
     }
@@ -58,9 +48,6 @@ public class SortingTest {
         ArrayEntity entityExpected=new ArrayEntity(arr2);
         //when
         sorting.selectionSort(entityActual);
-
-        logger.log(Level.INFO,entityActual);
-        logger.log(Level.INFO,entityExpected);
         //then
         assertEquals(entityActual,entityExpected);
     }

@@ -5,6 +5,7 @@ import com.epam.alex.entity.ArrayEntity;
 public class Sorting {
 
     public void bubbleSort(ArrayEntity arrayEntity){
+        //проверка на неравенство нулю массива
             int []array= arrayEntity.getArray();
             bubbleSortLogic(array);
             arrayEntity.setArray(array);
@@ -23,6 +24,7 @@ public class Sorting {
     }
 
     public void insertionSort(ArrayEntity arrayEntity){
+        //проверка на неравенство массива нулю
         int []array= arrayEntity.getArray();
         insertionSortLogic(array);
         arrayEntity.setArray(array);
@@ -46,6 +48,7 @@ public class Sorting {
     }
 
     public void selectionSort(ArrayEntity arrayEntity){
+        //проверка на неравенство массива нулю
         int []array= arrayEntity.getArray();
         selectionSortLogic(array);
         arrayEntity.setArray(array);

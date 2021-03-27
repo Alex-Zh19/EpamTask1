@@ -31,6 +31,14 @@ public class ArrayEntity {
        }
     }
 
+    public ArrayEntity(Integer []arr){
+        if(arr.length>0) {
+            this.size = arr.length;
+            this.array = new int[size];
+            createArray(arr);
+        }
+    }
+
     private void createArray(){
         for (int i=0;i<size;i++){
           array[i]=(int) (-100+Math.random()*100);
@@ -38,6 +46,12 @@ public class ArrayEntity {
     }
 
     private void createArray(int []arr){
+        for (int i=0;i<size;i++){
+            array[i]=arr[i];
+        }
+    }
+
+    private void createArray(Integer []arr){
         for (int i=0;i<size;i++){
             array[i]=arr[i];
         }
