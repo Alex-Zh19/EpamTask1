@@ -15,15 +15,20 @@ public class ArrayEntity {
     }
 
     public ArrayEntity(int size){
+       if(size>0){
         this.size=size;
         this.array=new int[size];
         setArray();
+       }
+
     }
 
     public ArrayEntity(int []arr){
-        this.size=arr.length;
-        this.array=new int[size];
-        setArray(arr);
+       if(arr.length>0) {
+           this.size = arr.length;
+           this.array = new int[size];
+           setArray(arr);
+       }
     }
 
     private void setArray(){
