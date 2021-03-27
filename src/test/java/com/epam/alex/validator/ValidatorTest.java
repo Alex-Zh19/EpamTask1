@@ -2,7 +2,9 @@ package com.epam.alex.validator;
 
 import org.testng.annotations.Test;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.testng.Assert.*;
 
@@ -12,7 +14,7 @@ public class ValidatorTest {
     public void testValidateString() {
         //given
         Validator validator=new Validator();
-        ArrayList<String> strings=new ArrayList<>();
+        List<String> strings=new ArrayList<>();
         strings.add("1b,5,8");
         strings.add("a,1,3");
         strings.add("1,4,5");

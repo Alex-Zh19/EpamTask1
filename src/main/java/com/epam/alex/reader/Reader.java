@@ -1,12 +1,15 @@
 package com.epam.alex.reader;
 
+import com.epam.alex.exception.ArrayEntityException;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class Reader {
-    public ArrayList<String>readFile(){
-        //пофиксить эксепшены
-        ArrayList<String>allStrings=new ArrayList<>();
+    public List<String> readFile() {
+        List<String> allStrings= new ArrayList<>();
         String str;
         File file = new File("C:\\Users\\Asus\\IdeaProjects\\EpamTask1\\Input data\\array.txt");
         BufferedReader bufferedReader = null;
@@ -25,14 +28,24 @@ public class Reader {
                 str= bufferedReader.readLine();
             }
 
-        }catch(FileNotFoundException fnfe)
+        }catch(FileNotFoundException e)
         {
-            System.out.println("The specified file not found" + fnfe);
+            try{
+                throw new ArrayEntityException(e);
+            }catch (ArrayEntityException ex){
+
+            }
         }
         catch(IOException ioe)
         {
-            System.out.println("I/O Exception: " + ioe);
+            try{
+                throw new ArrayEntityException(ioe);
+            }catch (ArrayEntityException ex){
+
+            }
         }
+
+
         finally
         {
             try{
@@ -44,7 +57,11 @@ public class Reader {
                 }
             }catch(IOException ioe)
             {
-                System.out.println("Error in InputStream close(): " + ioe);
+                try{
+                    throw new ArrayEntityException(ioe);
+                }catch (ArrayEntityException ex){
+
+                }
             }
         }
         return allStrings;

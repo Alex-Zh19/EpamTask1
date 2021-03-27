@@ -1,16 +1,16 @@
 package com.epam.alex.validator;
 
-import com.epam.alex.sources.Changer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Validator {
-    public Integer[] validateString(ArrayList<String> stringArrayList){
+    public Integer[] validateString(List<String> stringArrayList){
         //трай катч чтобы эррей лист не равен нулю
         for(String string:stringArrayList) {
             char[] chars = getCharsFromString(string);
             if (isAcceptableToCreateArray(chars)) {
-                ArrayList<Integer>bufferList=createDigitArray(chars);
+                List<Integer>bufferList=createDigitArray(chars);
                 Integer []arrayToCreateEntity=bufferList.toArray(new Integer[bufferList.size()]);
                 return arrayToCreateEntity;
             }
@@ -41,8 +41,8 @@ public class Validator {
         return Character.isDigit(c);
     }
 
-    private ArrayList<Integer> createDigitArray(char[]chars){
-        ArrayList<Integer>integerArrayList=new ArrayList<>();
+    private List<Integer> createDigitArray(char[]chars){
+        List<Integer>integerArrayList= new ArrayList<>();
         for (Character ch:chars){
             if(ch==','){
                 continue;
