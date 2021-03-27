@@ -11,14 +11,14 @@ public class ArrayEntity {
     public ArrayEntity(){
         this.size=5;
         this.array=new int[size];
-        setArray();
+        createArray();
     }
 
     public ArrayEntity(int size){
        if(size>0){
         this.size=size;
         this.array=new int[size];
-        setArray();
+           createArray();
        }
 
     }
@@ -27,17 +27,17 @@ public class ArrayEntity {
        if(arr.length>0) {
            this.size = arr.length;
            this.array = new int[size];
-           setArray(arr);
+           createArray(arr);
        }
     }
 
-    private void setArray(){
+    private void createArray(){
         for (int i=0;i<size;i++){
           array[i]=(int) (-100+Math.random()*100);
         }
     }
 
-    private void setArray(int []arr){
+    private void createArray(int []arr){
         for (int i=0;i<size;i++){
             array[i]=arr[i];
         }
@@ -52,6 +52,14 @@ public class ArrayEntity {
             return array[pos];
         }
        return -111;
+    }
+
+    public int []getArray(){
+        return Arrays.copyOf(array,array.length);
+    }
+
+    public void setArray(int []arr){
+        array=Arrays.copyOf(arr,arr.length);
     }
 
     public void setElement(int pos,int el){
@@ -77,7 +85,7 @@ public class ArrayEntity {
 
     @Override
     public String toString() {
-        return "MyArray{" +
+        return "ArrayEntity{" +
                 "array=" + Arrays.toString(array) +
                 ", size=" + size +
                 '}';
