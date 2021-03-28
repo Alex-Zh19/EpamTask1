@@ -9,37 +9,33 @@ public class Validator {
     public Integer[] validateString(List<String> stringArrayList){
        if(!stringArrayList.isEmpty()) {
            for (String string : stringArrayList) {
-               char[] chars = getCharsFromString(string);
-               if (isAcceptableToCreateArray(chars)) {
+              String []substr=string.split(",");
+               if (isAcceptableToCreateArray(substr)) {
                    Parser parser=new Parser();
-                   return parser.getDigitArray(chars);
+                   return parser.getDigitArray(substr);
                }
            }
        }
        return null;
     }
 
-    private char[]getCharsFromString(String str){
-        int length=str.length();
-        char[]strToCharArr=new char[length];
-        str.getChars(0,length,strToCharArr,0 );
-        return strToCharArr;
-    }
 
-    private boolean isAcceptableToCreateArray(char[]charsFromString){
-        for (char ch:charsFromString){
-           if(ch==','){
-               continue;
-           }
-           if(!isDigit(ch)){
+    private boolean isAcceptableToCreateArray(String[]digitsFromString){
+        for (String str:digitsFromString){
+           if(!isDigit(str)){
                return false;
            }
         }
         return true;
     }
 
-    private boolean isDigit(char c){
-        return Character.isDigit(c);
+    private boolean isDigit(String str)throws NumberFormatException{
+        try{
+        Integer integer=Integer.parseInt(str);
+        return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
     }
 
 
