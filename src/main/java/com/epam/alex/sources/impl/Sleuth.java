@@ -2,11 +2,15 @@ package com.epam.alex.sources.impl;
 
 import com.epam.alex.entity.ArrayEntity;
 import com.epam.alex.sources.ISleuth;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.stream.IntStream;
 
 public class Sleuth implements ISleuth {
-
+    final String NULLARRAYEXCEPTION="array isn't exist";
+    static Logger logger= LogManager.getLogger();
     public int min(ArrayEntity array){
        if(array!=null&&array.getSize()>0){
         int min=array.getElement(0);
@@ -16,8 +20,11 @@ public class Sleuth implements ISleuth {
             }
         }
         return min;
+       }else{
+           logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+           return 0;
        }
-       return 0;
+
     }
     public int minStream(ArrayEntity array){
         if(array!=null&&array.getSize()>0){
@@ -25,8 +32,11 @@ public class Sleuth implements ISleuth {
            int []arr=array.getArray();
            min= IntStream.of(arr).min().getAsInt();
            return min;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0;
         }
-        return 0;
+
     }
 
     public int max(ArrayEntity array){
@@ -38,8 +48,11 @@ public class Sleuth implements ISleuth {
              }
          }
          return max;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0;
         }
-        return 0;
+
     }
 
     public int maxStream(ArrayEntity array){
@@ -48,7 +61,10 @@ public class Sleuth implements ISleuth {
             int []arr=array.getArray();
             min= IntStream.of(arr).max().getAsInt();
             return min;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0;
         }
-        return 0;
+
     }
 }

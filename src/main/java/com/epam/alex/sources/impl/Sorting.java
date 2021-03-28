@@ -2,16 +2,23 @@ package com.epam.alex.sources.impl;
 
 import com.epam.alex.entity.ArrayEntity;
 import com.epam.alex.sources.ISorting;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.stream.IntStream;
 
 public class Sorting implements ISorting {
-
+    final String NULLARRAYEXCEPTION="array isn't exist";
+    final String SORTEDARRAYEXCEPTION="this array already have been sorted";
+    static Logger logger= LogManager.getLogger();
     public void bubbleSort(ArrayEntity arrayEntity){
         if(arrayEntity!=null){
             int []array= arrayEntity.getArray();
             bubbleSortLogic(array);
             arrayEntity.setArray(array);
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
         }
     }
 
@@ -26,6 +33,8 @@ public class Sorting implements ISorting {
                 }
             }
          }
+        }else{
+            logger.log(Level.ERROR,SORTEDARRAYEXCEPTION);
         }
     }
 
@@ -34,6 +43,8 @@ public class Sorting implements ISorting {
         int []array= arrayEntity.getArray();
         insertionSortLogic(array);
         arrayEntity.setArray(array);
+       }else{
+           logger.log(Level.ERROR,NULLARRAYEXCEPTION);
        }
     }
 
@@ -51,6 +62,8 @@ public class Sorting implements ISorting {
             }
             arr[j + 1] = key;
           }
+        }else{
+            logger.log(Level.ERROR,SORTEDARRAYEXCEPTION);
         }
     }
 
@@ -59,6 +72,8 @@ public class Sorting implements ISorting {
           int []array= arrayEntity.getArray();
           selectionSortLogic(array);
           arrayEntity.setArray(array);
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
         }
     }
 
@@ -78,6 +93,8 @@ public class Sorting implements ISorting {
             array[pos] = array[i];
             array[i] = min;
         }
+       }else{
+           logger.log(Level.ERROR,SORTEDARRAYEXCEPTION);
        }
     }
 
@@ -87,6 +104,8 @@ public class Sorting implements ISorting {
             int []arr= arrayEntity.getArray();
             arr= IntStream.of(arr).sorted().toArray();
             arrayEntity.setArray(arr);
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
         }
     }
 }

@@ -2,11 +2,15 @@ package com.epam.alex.sources.impl;
 
 import com.epam.alex.entity.ArrayEntity;
 import com.epam.alex.sources.IDefiner;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.stream.IntStream;
 
 public class Definer implements IDefiner {
-
+    final String NULLARRAYEXCEPTION="array isn't exist";
+    static Logger logger= LogManager.getLogger();
     public double average(ArrayEntity array){
         if(array!=null&&array.getSize()>0){
           double result=0.0;
@@ -15,8 +19,11 @@ public class Definer implements IDefiner {
           }
           result=result/(array.getSize());
           return result;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0.0;
         }
-        return 0.0;
+
     }
 
     public double averageStream(ArrayEntity arrayEntity){
@@ -25,8 +32,11 @@ public class Definer implements IDefiner {
             int []arr=arrayEntity.getArray();
             result= IntStream.of(arr).average().getAsDouble();
             return result;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0.0;
         }
-        return 0.0;
+
     }
 
     public int sum(ArrayEntity array){
@@ -36,8 +46,11 @@ public class Definer implements IDefiner {
              sum+= array.getElement(i);
          }
          return sum;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0;
         }
-        return 0;
+
     }
 
     public int sumStream(ArrayEntity arrayEntity){
@@ -46,8 +59,11 @@ public class Definer implements IDefiner {
             int []arr=arrayEntity.getArray();
             sum=IntStream.of(arr).sum();
             return sum;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return 0;
         }
-        return 0;
+
     }
 
     public int countOfPositive(ArrayEntity array){
@@ -59,8 +75,11 @@ public class Definer implements IDefiner {
                 }
             }
             return count;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return -1;
         }
-        return -1;
+
     }
 
     public int countOfPositiveStream(ArrayEntity arrayEntity){
@@ -69,11 +88,13 @@ public class Definer implements IDefiner {
             int []arr= arrayEntity.getArray();
             count=(int)IntStream.of(arr).filter(i->i>0).count();
             return count;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return -1;
         }
-        return -1;
+
     }
     public int countOfNegative(ArrayEntity array){
-
         if(array!=null&&array.getSize()>0) {
             int count = 0;
             for (int i = 0; i < array.getSize(); i++) {
@@ -82,8 +103,11 @@ public class Definer implements IDefiner {
                 }
             }
             return count;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return -1;
         }
-        return -1;
+
     }
 
     public int countOfNegativeStream(ArrayEntity arrayEntity){
@@ -92,7 +116,10 @@ public class Definer implements IDefiner {
             int []arr= arrayEntity.getArray();
             count=(int)IntStream.of(arr).filter(i->i<0).count();
             return count;
+        }else{
+            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
+            return -1;
         }
-        return -1;
+
     }
 }

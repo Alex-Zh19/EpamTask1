@@ -18,7 +18,7 @@ public class ReaderTest {
         List<String> stringsExpected=new ArrayList<>();
         stringsExpected.add("1b,5,8");
         stringsExpected.add("a,1,3");
-        stringsExpected.add("1,4,5");
+        stringsExpected.add("14,45,55");
         Reader reader=new Reader();
         //when
         stringsActual= reader.readFile();

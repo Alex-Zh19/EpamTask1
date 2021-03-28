@@ -17,8 +17,8 @@ public class ValidatorAndParserTest {
         List<String> strings=new ArrayList<>();
         strings.add("1b,5,8");
         strings.add("a,1,3");
-        strings.add("1,4,5");
-        Integer[]arrayExpected=new Integer[]{1,4,5};
+        strings.add("145,45,55");
+        Integer[]arrayExpected=new Integer[]{145,45,55};
         Integer[]arrayActual;
 
         //when
