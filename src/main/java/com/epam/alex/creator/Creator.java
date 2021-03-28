@@ -4,8 +4,11 @@ import com.epam.alex.entity.ArrayEntity;
 
 public class Creator {
     public ArrayEntity createArrayEntity(Integer[]integers){
-        //try catch блок чтоб массив не равен нулю
-        ArrayEntity arrayEntity=new ArrayEntity(integers);
-        return arrayEntity;
+      if(integers.length>0){
+            ArrayEntity arrayEntity = new ArrayEntity(integers);
+            return arrayEntity;
+      }
+      return null;
+
     }
 }

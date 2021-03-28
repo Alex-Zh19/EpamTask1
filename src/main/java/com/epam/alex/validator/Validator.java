@@ -1,20 +1,21 @@
 package com.epam.alex.validator;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
     public Integer[] validateString(List<String> stringArrayList){
-        //трай катч чтобы эррей лист не равен нулю
-        for(String string:stringArrayList) {
-            char[] chars = getCharsFromString(string);
-            if (isAcceptableToCreateArray(chars)) {
-                List<Integer>bufferList=createDigitArray(chars);
-                Integer []arrayToCreateEntity=bufferList.toArray(new Integer[bufferList.size()]);
-                return arrayToCreateEntity;
-            }
-        }
+       if(!stringArrayList.isEmpty()) {
+           for (String string : stringArrayList) {
+               char[] chars = getCharsFromString(string);
+               if (isAcceptableToCreateArray(chars)) {
+                   List<Integer> bufferList = createDigitArray(chars);
+                   Integer[] arrayToCreateEntity = bufferList.toArray(new Integer[bufferList.size()]);
+                   return arrayToCreateEntity;
+               }
+           }
+       }
+
        return null;
     }
 

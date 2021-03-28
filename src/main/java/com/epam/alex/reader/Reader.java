@@ -31,7 +31,7 @@ public class Reader {
         }catch(FileNotFoundException e)
         {
             try{
-                throw new ArrayEntityException(e);
+                throw new ArrayEntityException(e, e.getMessage());
             }catch (ArrayEntityException ex){
 
             }
@@ -39,7 +39,7 @@ public class Reader {
         catch(IOException ioe)
         {
             try{
-                throw new ArrayEntityException(ioe);
+                throw new ArrayEntityException(ioe,ioe.getMessage());
             }catch (ArrayEntityException ex){
 
             }
@@ -58,7 +58,7 @@ public class Reader {
             }catch(IOException ioe)
             {
                 try{
-                    throw new ArrayEntityException(ioe);
+                    throw new ArrayEntityException(ioe, ioe.getMessage());
                 }catch (ArrayEntityException ex){
 
                 }

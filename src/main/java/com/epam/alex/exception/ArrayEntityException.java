@@ -6,7 +6,7 @@ public class ArrayEntityException extends Exception{
     public ArrayEntityException(String message) {
         super(message);
     }
-    public ArrayEntityException(String message, Throwable cause) {
+    public ArrayEntityException( Throwable cause,String message) {
         super(message, cause);
     }
     public ArrayEntityException(Throwable cause) {

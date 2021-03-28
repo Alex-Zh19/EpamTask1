@@ -12,7 +12,7 @@ import static org.testng.Assert.*;
 public class ReaderTest {
 
     @Test
-    public void testReadFileException(){
+    public void testReadFile(){
         //given
         List<String> stringsActual;
         List<String> stringsExpected=new ArrayList<>();

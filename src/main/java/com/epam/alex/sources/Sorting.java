@@ -1,18 +1,21 @@
 package com.epam.alex.sources;
 
 import com.epam.alex.entity.ArrayEntity;
+import com.epam.alex.sources.impl.Sources;
 
-public class Sorting {
+public class Sorting  implements Sources {
 
     public void bubbleSort(ArrayEntity arrayEntity){
-        //проверка на неравенство нулю массива
+        if(arrayEntity!=null){
             int []array= arrayEntity.getArray();
             bubbleSortLogic(array);
             arrayEntity.setArray(array);
+        }
     }
 
     private void bubbleSortLogic(int []array){
-        for (int i = 0; i < array.length - 1; i++) {
+        if(array.length>1){
+         for (int i = 0; i < array.length - 1; i++) {
             for (int j = array.length - 1; j > i; j--) {
                 if (array[j - 1] > array[j]) {
                     int tmp = array[j - 1];
@@ -20,22 +23,23 @@ public class Sorting {
                     array[j] = tmp;
                 }
             }
+         }
         }
     }
 
     public void insertionSort(ArrayEntity arrayEntity){
-        //проверка на неравенство массива нулю
+       if(arrayEntity!=null){
         int []array= arrayEntity.getArray();
         insertionSortLogic(array);
         arrayEntity.setArray(array);
+       }
     }
 
-    private void insertionSortLogic(int arr[])
-    {
+    private void insertionSortLogic(int arr[]) {
         int n= arr.length;
-        int i, key, j;
-        for (i = 1; i < n; i++)
-        {
+        if(n>1){
+          int i, key, j;
+          for (i = 1; i < n; i++) {
             key = arr[i];
             j = i - 1;
             while (j >= 0 && arr[j] > key)
@@ -44,30 +48,34 @@ public class Sorting {
                 j = j - 1;
             }
             arr[j + 1] = key;
+          }
         }
     }
 
     public void selectionSort(ArrayEntity arrayEntity){
-        //проверка на неравенство массива нулю
-        int []array= arrayEntity.getArray();
-        selectionSortLogic(array);
-        arrayEntity.setArray(array);
+        if(arrayEntity!=null){
+          int []array= arrayEntity.getArray();
+          selectionSortLogic(array);
+          arrayEntity.setArray(array);
+        }
     }
 
 
     private void selectionSortLogic(int []array){
-        for (int i = 0; i < array.length; i++) {    // i - номер текущего шага
+       if(array.length>1){
+        for (int i = 0; i < array.length; i++) {
             int pos = i;
             int min = array[i];
-            // цикл выбора наименьшего элемента
+
             for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < min) {
-                    pos = j;    // pos - индекс наименьшего элемента
+                    pos = j;
                     min = array[j];
                 }
             }
             array[pos] = array[i];
-            array[i] = min;    // меняем местами наименьший с array[i]
+            array[i] = min;
         }
+       }
     }
 }

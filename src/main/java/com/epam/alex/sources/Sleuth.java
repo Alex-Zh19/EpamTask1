@@ -1,11 +1,12 @@
 package com.epam.alex.sources;
 
 import com.epam.alex.entity.ArrayEntity;
+import com.epam.alex.sources.impl.Sources;
 
-public class Sleuth {
+public class Sleuth  implements Sources {
 
     public int min(ArrayEntity array){
-        //не ноль
+       if(array!=null&&array.getSize()>0){
         int min=array.getElement(0);
         for(int i=1;i<array.getSize();i++){
             if(array.getElement(i)<min){
@@ -13,16 +14,20 @@ public class Sleuth {
             }
         }
         return min;
+       }
+       return 0;
     }
 
     public int max(ArrayEntity array){
-        //не ноль
-        int max=array.getElement(0);
-        for(int i=1;i<array.getSize();i++){
-            if(array.getElement(i)>max){
-                max=array.getElement(i);
-            }
+        if(array!=null&&array.getSize()>0){
+         int max=array.getElement(0);
+         for(int i=1;i<array.getSize();i++){
+             if(array.getElement(i)>max){
+                 max=array.getElement(i);
+             }
+         }
+         return max;
         }
-        return max;
+        return 0;
     }
 }
