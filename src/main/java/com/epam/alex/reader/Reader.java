@@ -11,7 +11,8 @@ public class Reader {
     public List<String> readFile() {
         List<String> allStrings= new ArrayList<>();
         String str;
-        File file = new File("C:\\Users\\Asus\\IdeaProjects\\EpamTask1\\Input data\\array.txt");
+        String path="C:\\Users\\Asus\\IdeaProjects\\EpamTask1\\Input data\\array.txt";
+        File file = new File(path);
         BufferedReader bufferedReader = null;
         FileReader fileReader= null;
 

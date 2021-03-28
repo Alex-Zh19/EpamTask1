@@ -1,6 +1,7 @@
 package com.epam.alex.sources;
 
 import com.epam.alex.entity.ArrayEntity;
+import com.epam.alex.sources.impl.Sorting;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -48,6 +49,21 @@ public class SortingTest {
         ArrayEntity entityExpected=new ArrayEntity(arr2);
         //when
         sorting.selectionSort(entityActual);
+        //then
+        assertEquals(entityActual,entityExpected);
+    }
+
+    @Test
+    public void testSortStream() {
+        //given
+        Sorting sorting=new Sorting();
+        int arr[]=new int[]{4,5,2,15,1,13,20,6};
+        ArrayEntity entityActual=new ArrayEntity(arr);
+
+        int arr2[]=new int[]{1,2,4,5,6,13,15,20};
+        ArrayEntity entityExpected=new ArrayEntity(arr2);
+        //when
+        sorting.sortStream(entityActual);
         //then
         assertEquals(entityActual,entityExpected);
     }

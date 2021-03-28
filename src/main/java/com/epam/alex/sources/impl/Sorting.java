@@ -1,9 +1,11 @@
-package com.epam.alex.sources;
+package com.epam.alex.sources.impl;
 
 import com.epam.alex.entity.ArrayEntity;
-import com.epam.alex.sources.impl.Sources;
+import com.epam.alex.sources.ISorting;
 
-public class Sorting  implements Sources {
+import java.util.stream.IntStream;
+
+public class Sorting implements ISorting {
 
     public void bubbleSort(ArrayEntity arrayEntity){
         if(arrayEntity!=null){
@@ -77,5 +79,14 @@ public class Sorting  implements Sources {
             array[i] = min;
         }
        }
+    }
+
+
+    public void sortStream(ArrayEntity arrayEntity){
+        if(arrayEntity!=null&&arrayEntity.getSize()>1){
+            int []arr= arrayEntity.getArray();
+            arr= IntStream.of(arr).sorted().toArray();
+            arrayEntity.setArray(arr);
+        }
     }
 }

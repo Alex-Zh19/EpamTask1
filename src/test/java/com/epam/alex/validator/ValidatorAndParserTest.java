@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class ValidatorTest {
+public class ValidatorAndParserTest {
 
     @Test
     public void testValidateString() {

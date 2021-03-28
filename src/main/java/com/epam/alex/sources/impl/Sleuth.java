@@ -1,9 +1,11 @@
-package com.epam.alex.sources;
+package com.epam.alex.sources.impl;
 
 import com.epam.alex.entity.ArrayEntity;
-import com.epam.alex.sources.impl.Sources;
+import com.epam.alex.sources.ISleuth;
 
-public class Sleuth  implements Sources {
+import java.util.stream.IntStream;
+
+public class Sleuth implements ISleuth {
 
     public int min(ArrayEntity array){
        if(array!=null&&array.getSize()>0){
@@ -17,6 +19,15 @@ public class Sleuth  implements Sources {
        }
        return 0;
     }
+    public int minStream(ArrayEntity array){
+        if(array!=null&&array.getSize()>0){
+           int min;
+           int []arr=array.getArray();
+           min= IntStream.of(arr).min().getAsInt();
+           return min;
+        }
+        return 0;
+    }
 
     public int max(ArrayEntity array){
         if(array!=null&&array.getSize()>0){
@@ -27,6 +38,16 @@ public class Sleuth  implements Sources {
              }
          }
          return max;
+        }
+        return 0;
+    }
+
+    public int maxStream(ArrayEntity array){
+        if(array!=null&&array.getSize()>0){
+            int min;
+            int []arr=array.getArray();
+            min= IntStream.of(arr).max().getAsInt();
+            return min;
         }
         return 0;
     }
