@@ -1,50 +1,39 @@
 package com.alex.task1.creator;
 
-import com.alex.task1.parser.Parser;
 import com.alex.task1.entity.ArrayEntity;
-import com.alex.task1.reader.Reader;
-import com.alex.task1.validator.Validator;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.alex.task1.exception.ArrayEntityException;
 
 
 public class Creator {
-    private Parser parser;
-    private Validator validator;
-    private Reader reader;
 
-    public Creator(){
-        parser=new Parser();
-        validator=new Validator();
-        reader=new Reader();
-    }
-
-    public ArrayEntity createEntity(){
-        Integer[]arr=createIntArrayToCreateEntity();
-        if(arr!=null){
-        ArrayEntity newArrayEntity=new ArrayEntity(arr);
+    public ArrayEntity createArrayEntity(Integer[] arrayToCreateEntity)  {
+        ArrayEntity newArrayEntity = new ArrayEntity(arrayToCreateEntity.length);
+        newArrayEntity.setArray(arrayToCreateEntity);
         return newArrayEntity;
-        }
-        return null;
     }
 
-    private Integer[] createIntArrayToCreateEntity(){
-        List<String>listFromFile=new ArrayList<>();
-        listFromFile=reader.readFile();
-        Integer[]integers;
-        for (String str:listFromFile){
-            if(validator.validateString(str)){
-                integers=parser.parseString(str);
-               return integers;
-            }
-        }
-        return null;
+    public ArrayEntity createArrayEntity(int[] arrayToCreateEntity) {
+        ArrayEntity newArrayEntity = new ArrayEntity(arrayToCreateEntity.length);
+        newArrayEntity.setArray(arrayToCreateEntity);
+        return newArrayEntity;
     }
 
+    public ArrayEntity createArrayEntity(int size) throws ArrayEntityException {
+        if (size < 0) {
+            throw new ArrayEntityException("Size cannot be less than 0");
+        }
+        ArrayEntity newArrayEntity = new ArrayEntity(size);
+        int[] array = new int[size];
+        initArray(array);
+        newArrayEntity.setArray(array);
+        return newArrayEntity;
+    }
 
-
-
+    private void initArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-100 + Math.random() * 100);
+        }
+    }
 
 
 }

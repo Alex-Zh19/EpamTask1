@@ -1,125 +1,119 @@
 package com.alex.task1.source.impl;
 
 import com.alex.task1.entity.ArrayEntity;
-import com.alex.task1.source.IDefiner;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.alex.task1.exception.ArrayEntityException;
 
 import java.util.stream.IntStream;
 
-public class Definer implements IDefiner {
-    final String NULLARRAYEXCEPTION="array isn't exist";
-    static Logger logger= LogManager.getLogger();
-    public double average(ArrayEntity array){
-        if(array!=null&&array.getSize()>0){
-          double result=0.0;
-          for(int i=0;i<array.getSize();i++){
-              result+= array.getElement(i);
-          }
-          result=result/(array.getSize());
-          return result;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0.0;
+public class Definer implements com.alex.task1.source.DefinerInterface {
+
+    public double average(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+        int[] array = arrayEntity.getArray();
+        double result = 0.0;
+        for (int i = 0; i < array.length; i++) {
+            result += array[i];
+        }
+        result = result / (array.length);
+        return result;
+
 
     }
 
-    public double averageStream(ArrayEntity arrayEntity){
-        if(arrayEntity!=null&&arrayEntity.getSize()>0){
-            double result;
-            int []arr=arrayEntity.getArray();
-            result= IntStream.of(arr).average().getAsDouble();
-            return result;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0.0;
+    public double averageStream(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null || arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+
+        double result;
+        int[] arr = arrayEntity.getArray();
+        result = IntStream.of(arr).average().getAsDouble();
+        return result;
+
 
     }
 
-    public int sum(ArrayEntity array){
-        if(array!=null&&array.getSize()>0){
-         int sum=0;
-         for(int i=0;i<array.getSize();i++){
-             sum+= array.getElement(i);
-         }
-         return sum;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0;
+    public int sum(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+        int[] array = arrayEntity.getArray();
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+
 
     }
 
-    public int sumStream(ArrayEntity arrayEntity){
-        if(arrayEntity!=null&&arrayEntity.getSize()>0){
-            int sum;
-            int []arr=arrayEntity.getArray();
-            sum=IntStream.of(arr).sum();
-            return sum;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0;
+    public int sumStream(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null || arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+        int sum;
+        int[] arr = arrayEntity.getArray();
+        sum = IntStream.of(arr).sum();
+        return sum;
+
 
     }
 
-    public int countOfPositive(ArrayEntity array){
-        if(array!=null&&array.getSize()>0) {
-            int count = 0;
-            for (int i = 0; i < array.getSize(); i++) {
-                if (array.getElement(i) > 0) {
-                    count++;
-                }
+    public int countOfPositive(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null");
+        }
+        int[] array = arrayEntity.getArray();
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > 0) {
+                count++;
             }
-            return count;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return -1;
         }
+        return count;
+
 
     }
 
-    public int countOfPositiveStream(ArrayEntity arrayEntity){
-        if(arrayEntity!=null&&arrayEntity.getSize()>0){
-            int count;
-            int []arr= arrayEntity.getArray();
-            count=(int)IntStream.of(arr).filter(i->i>0).count();
-            return count;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return -1;
+    public int countOfPositiveStream(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+        int count;
+        int[] arr = arrayEntity.getArray();
+        count = (int) IntStream.of(arr).filter(i -> i > 0).count();
+        return count;
+
 
     }
-    public int countOfNegative(ArrayEntity array){
-        if(array!=null&&array.getSize()>0) {
-            int count = 0;
-            for (int i = 0; i < array.getSize(); i++) {
-                if (array.getElement(i) < 0) {
-                    count++;
-                }
+
+    public int countOfNegative(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null");
+        }
+        int[] array = arrayEntity.getArray();
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < 0) {
+                count++;
             }
-            return count;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return -1;
         }
+        return count;
+
 
     }
 
-    public int countOfNegativeStream(ArrayEntity arrayEntity){
-        if(arrayEntity!=null&&arrayEntity.getSize()>0){
-            int count;
-            int []arr= arrayEntity.getArray();
-            count=(int)IntStream.of(arr).filter(i->i<0).count();
-            return count;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return -1;
+    public int countOfNegativeStream(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+        int count;
+        int[] arr = arrayEntity.getArray();
+        count = (int) IntStream.of(arr).filter(i -> i < 0).count();
+        return count;
+
 
     }
 }

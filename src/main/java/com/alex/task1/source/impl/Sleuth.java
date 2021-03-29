@@ -1,70 +1,58 @@
 package com.alex.task1.source.impl;
 
 import com.alex.task1.entity.ArrayEntity;
-import com.alex.task1.source.ISleuth;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.alex.task1.exception.ArrayEntityException;
+
 
 import java.util.stream.IntStream;
 
-public class Sleuth implements ISleuth {
-    final String NULLARRAYEXCEPTION="array isn't exist";
-    static Logger logger= LogManager.getLogger();
-    public int min(ArrayEntity array){
-       if(array!=null&&array.getSize()>0){
-        int min=array.getElement(0);
-        for(int i=1;i<array.getSize();i++){
-            if(array.getElement(i)<min){
-                min=array.getElement(i);
+public class Sleuth implements com.alex.task1.source.SleuthInterface {
+
+
+    public int min(ArrayEntity arrayEntity) {
+        int min = 0;
+        int[] array = arrayEntity.getArray();
+        min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
             }
         }
         return min;
-       }else{
-           logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-           return 0;
-       }
-
-    }
-    public int minStream(ArrayEntity array){
-        if(array!=null&&array.getSize()>0){
-           int min;
-           int []arr=array.getArray();
-           min= IntStream.of(arr).min().getAsInt();
-           return min;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0;
-        }
-
     }
 
-    public int max(ArrayEntity array){
-        if(array!=null&&array.getSize()>0){
-         int max=array.getElement(0);
-         for(int i=1;i<array.getSize();i++){
-             if(array.getElement(i)>max){
-                 max=array.getElement(i);
-             }
-         }
-         return max;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0;
+    public int minStream(ArrayEntity array) throws ArrayEntityException {
+        if (array == null || array.getSize() <= 0) {
+            throw new ArrayEntityException("Array cannot be null");
         }
-
+        int min;
+        int[] arr = array.getArray();
+        min = IntStream.of(arr).min().getAsInt();
+        return min;
     }
 
-    public int maxStream(ArrayEntity array){
-        if(array!=null&&array.getSize()>0){
-            int min;
-            int []arr=array.getArray();
-            min= IntStream.of(arr).max().getAsInt();
-            return min;
-        }else{
-            logger.log(Level.ERROR,NULLARRAYEXCEPTION);
-            return 0;
+    public int max(ArrayEntity arrayEntity) {
+        int max = 0;
+        int[]array= arrayEntity.getArray();
+            max = array[0];
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] > max) {
+                    max = array[i];
+                }
+            }
+
+        return max;
+    }
+
+    public int maxStream(ArrayEntity array) throws ArrayEntityException {
+        if (array == null || array.getSize() <= 0) {
+            throw new ArrayEntityException("Array cannot be null");
         }
+        int min;
+        int[] arr = array.getArray();
+        min = IntStream.of(arr).max().getAsInt();
+        return min;
+
 
     }
 }

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Reader {
-    public List<String> readFile() {
+public class CustomReader {
+    public List<String> readFile() throws ArrayEntityException {
         List<String> allStrings = new ArrayList<>();
         String str;
         String path = "C:\\Users\\Asus\\IdeaProjects\\EpamTask1\\Input data\\array.txt";
@@ -29,30 +29,25 @@ public class Reader {
             }
 
         } catch (FileNotFoundException e) {
-            try {
-                throw new ArrayEntityException(e, e.getMessage());
-            } catch (ArrayEntityException ex) {
-
-            }
+            throw new ArrayEntityException(e, e.getMessage());
         } catch (IOException ioe) {
-            try {
-                throw new ArrayEntityException(ioe, ioe.getMessage());
-            } catch (ArrayEntityException ex) {
+            throw new ArrayEntityException(ioe, ioe.getMessage());
 
-            }
         } finally {
             try {
-                if (bufferedReader != null && fileReader != null) {
-                    fileReader.close();
+                if (bufferedReader != null) {
                     bufferedReader.close();
 
                 }
             } catch (IOException ioe) {
-                try {
-                    throw new ArrayEntityException(ioe, ioe.getMessage());
-                } catch (ArrayEntityException ex) {
-
+                throw new ArrayEntityException(ioe, ioe.getMessage());
+            }
+            try {
+                if (fileReader != null) {
+                    fileReader.close();
                 }
+            } catch (IOException ioe) {
+                throw new ArrayEntityException(ioe, ioe.getMessage());
             }
         }
         return allStrings;

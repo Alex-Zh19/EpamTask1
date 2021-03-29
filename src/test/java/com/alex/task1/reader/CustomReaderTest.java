@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class ReaderTest {
+public class CustomReaderTest {
 
     @Test
     public void testReadFile(){
@@ -18,9 +18,9 @@ public class ReaderTest {
         stringsExpected.add("1b,5,8");
         stringsExpected.add("a,1,3");
         stringsExpected.add("14,45,55");
-        Reader reader=new Reader();
+        CustomReader customReader =new CustomReader();
         //when
-        stringsActual= reader.readFile();
+        stringsActual= customReader.readFile();
         //then
         assertEquals(stringsActual,stringsExpected);
 
