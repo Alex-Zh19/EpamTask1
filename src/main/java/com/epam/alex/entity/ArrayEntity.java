@@ -1,64 +1,71 @@
 package com.epam.alex.entity;
 
+import com.epam.alex.exception.ArrayEntityException;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 public class ArrayEntity {
 
     int []array;
-    int size;
 
     public ArrayEntity(){
-        this.size=5;
+        int size=5;
         this.array=new int[size];
-        createArray();
+        init();
     }
 
-    public ArrayEntity(int size){
+    public ArrayEntity(int size) throws ArrayEntityException {
        if(size>0){
-        this.size=size;
         this.array=new int[size];
-           createArray();
+           init();
+       }else{
+           throw new ArrayEntityException("Illegal size");
        }
 
     }
 
-    public ArrayEntity(int []arr){
+    public ArrayEntity(int []arr) throws ArrayEntityException {
        if(arr.length>0) {
-           this.size = arr.length;
+           int size = arr.length;
            this.array = new int[size];
-           createArray(arr);
+           init(arr);
+       }
+       else{
+           throw new ArrayEntityException("Illegal size");
        }
     }
 
-    public ArrayEntity(Integer []arr){
+    public ArrayEntity(Integer []arr) throws ArrayEntityException {
         if(arr.length>0) {
-            this.size = arr.length;
+            int size = arr.length;
             this.array = new int[size];
-            createArray(arr);
+            init(arr);
+        }else{
+            throw new ArrayEntityException("Illegal size");
         }
     }
 
-    private void createArray(){
-        for (int i=0;i<size;i++){
+    private void init(){
+        for (int i=0;i<array.length;i++){
           array[i]=(int) (-100+Math.random()*100);
         }
     }
 
-    private void createArray(int []arr){
-        for (int i=0;i<size;i++){
+    private void init(int []arr){
+        for (int i=0;i<array.length;i++){
             array[i]=arr[i];
         }
     }
 
-    private void createArray(Integer []arr){
-        for (int i=0;i<size;i++){
+    private void init(Integer []arr){
+        for (int i=0;i<array.length;i++){
             array[i]=arr[i];
         }
     }
 
     public int getSize(){
-        return  this.size;
+        return  array.length;
     }
 
     public int getElement(int pos){
@@ -87,12 +94,12 @@ public class ArrayEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ArrayEntity myArray = (ArrayEntity) o;
-        return size == myArray.size && Arrays.equals(array, myArray.array);
+        return array.length == myArray.array.length && Arrays.equals(array, myArray.array);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(size);
+        int result = Objects.hash(array.length);
         result = 31 * result + Arrays.hashCode(array);
         return result;
     }
@@ -101,7 +108,7 @@ public class ArrayEntity {
     public String toString() {
         return "ArrayEntity{" +
                 "array=" + Arrays.toString(array) +
-                ", size=" + size +
+                ", size=" + array.length +
                 '}';
     }
 }
