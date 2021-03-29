@@ -17,9 +17,11 @@ public class CustomReaderTest {
         List<String> stringsActual=new ArrayList<>();
         List<String> stringsExpected=new ArrayList<>();
         stringsExpected.add("1b,5,8");
-        stringsExpected.add("a,1,3");
+        stringsExpected.add("1,1a,3");
+        stringsExpected.add("1,12,a");
         stringsExpected.add("14,45,55");
         CustomReader customReader =new CustomReader();
+
         //when
 
         try {
@@ -28,6 +30,7 @@ public class CustomReaderTest {
 
         }
         //then
+
         assertEquals(stringsActual,stringsExpected);
 
     }
