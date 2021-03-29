@@ -1,6 +1,7 @@
 package com.epam.alex.sources;
 
 import com.epam.alex.entity.ArrayEntity;
+import com.epam.alex.exception.ArrayEntityException;
 import com.epam.alex.sources.impl.Sorting;
 import org.testng.annotations.Test;
 
@@ -54,7 +55,7 @@ public class SortingTest {
     }
 
     @Test
-    public void testSortStream() {
+    public void testSortStream(){
         //given
         Sorting sorting=new Sorting();
         int arr[]=new int[]{4,5,2,15,1,13,20,6};

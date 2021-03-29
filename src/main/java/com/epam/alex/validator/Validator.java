@@ -6,13 +6,12 @@ import com.epam.alex.parser.Parser;
 import java.util.List;
 
 public class Validator {
-    public Integer[] validateString(List<String> stringArrayList){
+    public String[] validateString(List<String> stringArrayList){
        if(!stringArrayList.isEmpty()) {
            for (String string : stringArrayList) {
               String []substr=string.split(",");
                if (isAcceptableToCreateArray(substr)) {
-                   Parser parser=new Parser();
-                   return parser.getDigitArray(substr);
+                   return substr;
                }
            }
        }

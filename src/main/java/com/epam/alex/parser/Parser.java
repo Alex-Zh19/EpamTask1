@@ -8,8 +8,6 @@ public class Parser {
           List<Integer> bufferList = createDigitArrayList(digits);
           Integer[] arrayToCreateEntity = bufferList.toArray(new Integer[bufferList.size()]);
           return arrayToCreateEntity;
-
-
     }
 
 

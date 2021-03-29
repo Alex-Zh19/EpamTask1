@@ -1,7 +1,5 @@
 package com.epam.alex.entity;
 
-import com.epam.alex.exception.ArrayEntityException;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -15,34 +13,28 @@ public class ArrayEntity {
         init();
     }
 
-    public ArrayEntity(int size) throws ArrayEntityException {
+    public ArrayEntity(int size)  {
        if(size>0){
         this.array=new int[size];
            init();
-       }else{
-           throw new ArrayEntityException("Illegal size");
        }
 
     }
 
-    public ArrayEntity(int []arr) throws ArrayEntityException {
+    public ArrayEntity(int []arr) {
        if(arr.length>0) {
            int size = arr.length;
            this.array = new int[size];
            init(arr);
        }
-       else{
-           throw new ArrayEntityException("Illegal size");
-       }
+
     }
 
-    public ArrayEntity(Integer []arr) throws ArrayEntityException {
+    public ArrayEntity(Integer []arr)  {
         if(arr.length>0) {
             int size = arr.length;
             this.array = new int[size];
             init(arr);
-        }else{
-            throw new ArrayEntityException("Illegal size");
         }
     }
 
