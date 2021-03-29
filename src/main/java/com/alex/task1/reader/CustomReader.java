@@ -11,15 +11,13 @@ public class CustomReader {
     public List<String> readFile() throws ArrayEntityException {
         List<String> allStrings = new ArrayList<>();
         String str;
-        String path = "C:\\Users\\Asus\\IdeaProjects\\EpamTask1\\Input data\\array.txt";
+        String path = "C:\\Users\\Asus\\IdeaProjects\\EpamTask1\\src\\main\\resources\\Input data\\array.txt";
         File file = new File(path);
-        BufferedReader bufferedReader = null;
-        FileReader fileReader = null;
 
-        try {
-            fileReader = new FileReader(file);
 
-            bufferedReader = new BufferedReader(fileReader);
+        try(FileReader fileReader=new FileReader(file);
+            BufferedReader bufferedReader=new BufferedReader(fileReader)) {
+
             str = bufferedReader.readLine();
             while (str != null) {
                 if (!str.isEmpty()) {
@@ -33,22 +31,6 @@ public class CustomReader {
         } catch (IOException ioe) {
             throw new ArrayEntityException(ioe, ioe.getMessage());
 
-        } finally {
-            try {
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-
-                }
-            } catch (IOException ioe) {
-                throw new ArrayEntityException(ioe, ioe.getMessage());
-            }
-            try {
-                if (fileReader != null) {
-                    fileReader.close();
-                }
-            } catch (IOException ioe) {
-                throw new ArrayEntityException(ioe, ioe.getMessage());
-            }
         }
         return allStrings;
     }
