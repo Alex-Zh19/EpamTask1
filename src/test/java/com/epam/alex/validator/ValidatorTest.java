@@ -3,28 +3,32 @@ package com.epam.alex.validator;
 import org.testng.annotations.Test;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.testng.Assert.*;
 
 public class ValidatorTest {
 
     @Test
-    public void testValidateString() {
+    public void testTestValidateStringTrue() {
         //given
+        String str3="145,45,55";
         Validator validator=new Validator();
-        List<String> strings=new ArrayList<>();
-        strings.add("1b,5,8");
-        strings.add("a,1,3");
-        strings.add("145,45,55");
-        String[]stringExpected={"145","45","55"};
-        String []stringActual;
-
         //when
-        stringActual= validator.validateString(strings);
-        //then
-        assertEquals(stringActual,stringExpected);
+        boolean bool=validator.validateString(str3);
 
+        //then
+        assertTrue(bool);
+    }
+    @Test
+    public void testTestValidateStringStrFalse() {
+        //given
+        String str1="1b,5,8";
+
+        Validator validator=new Validator();
+        //when
+        boolean bool=validator.validateString(str1);
+
+        //then
+        assertFalse(bool);
     }
 }

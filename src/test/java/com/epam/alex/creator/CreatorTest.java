@@ -11,13 +11,13 @@ public class CreatorTest {
     @Test
     public void testCreateArrayEntity() {
         //given
-        int arrToCreateExpected[]={14,35,6};
-        Integer arrToCreateActual[]={14,35,6};
+        int arrToCreateExpected[]={14,45,55};
         Creator creator=new Creator();
         ArrayEntity arrayEntityExpected=new ArrayEntity(arrToCreateExpected);
         //when
-        ArrayEntity arrayEntityActual= creator.createArrayEntity(arrToCreateActual);
+        ArrayEntity arrayEntityActual= creator.createEntity();
         //then
         assertEquals(arrayEntityActual,arrayEntityExpected);
     }
+
 }

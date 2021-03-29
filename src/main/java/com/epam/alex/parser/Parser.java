@@ -4,19 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
-    public Integer[]getDigitArray(String[]digits){
-          List<Integer> bufferList = createDigitArrayList(digits);
-          Integer[] arrayToCreateEntity = bufferList.toArray(new Integer[bufferList.size()]);
-          return arrayToCreateEntity;
+
+    final static String REGEXP="[\\,\\s]+";
+    public Integer[]parseString(String str){
+        String[]digitsInString=str.split(REGEXP);
+        List<Integer> intList=new ArrayList<>();
+        for(String digit:digitsInString){
+            intList.add(stringToDigit(digit));
+        }
+        Integer[]arrayFromString=intList.toArray(new Integer[intList.size()]);
+        return arrayFromString;
     }
 
 
-    private List<Integer> createDigitArrayList(String[]strings){
-          List<Integer>integerArrayList= new ArrayList<>();
-          for (String str:strings){
-              Integer integerFromChar=Integer.parseInt(str);
-              integerArrayList.add(integerFromChar);
-          }
-          return integerArrayList;
+    private Integer stringToDigit(String str)throws NumberFormatException{
+        try{
+            Integer integer=Integer.parseInt(str);
+            return integer;
+        }catch (NumberFormatException e){
+            return null;
+        }
     }
+
+
 }
