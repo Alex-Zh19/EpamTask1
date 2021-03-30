@@ -13,9 +13,10 @@ import java.util.stream.Stream;
 
 public class CustomReader {
 
-    public List<String> readFile() throws ArrayEntityException {
+    public List<String> readFile(String fileName) throws ArrayEntityException {
         List<String> allStrings = new ArrayList<>();
-        String path = "/data/array.txt";
+
+        String path=fileName;
         try(Stream<String>stream=Files.lines(Paths.get(path))){
             allStrings=stream.filter(i->!i.isEmpty()).collect(Collectors.toList());
         }catch (IOException exception){

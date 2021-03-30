@@ -14,6 +14,7 @@ public class CustomReaderTest {
     @Test
     public void testReadFile(){
         //given
+        String fileNAme=  "src/main/resources/data/array.txt";
         List<String> stringsActual=new ArrayList<>();
         List<String> stringsExpected=new ArrayList<>();
         stringsExpected.add("1b,5,8");
@@ -25,7 +26,7 @@ public class CustomReaderTest {
         //when
 
         try {
-            stringsActual = customReader.readFile();
+            stringsActual = customReader.readFile(fileNAme);
         }catch (ArrayEntityException exception){
 
         }
