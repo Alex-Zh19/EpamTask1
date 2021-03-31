@@ -13,10 +13,15 @@ import java.util.stream.Stream;
 
 public class CustomReader {
 
-    public List<String> readFile(String fileName) throws ArrayEntityException {
+    public List<String> readFile(String fileNameAndPreviousPackage) throws ArrayEntityException {
         List<String> allStrings = new ArrayList<>();
-
-        String path=fileName;
+        File file;
+        try{
+        file=new File(getClass().getResource(fileNameAndPreviousPackage).getFile());
+        }catch (NullPointerException e){
+            throw new ArrayEntityException(e);
+        }
+        String path=file.getAbsolutePath();
         try(Stream<String>stream=Files.lines(Paths.get(path))){
             allStrings=stream.filter(i->!i.isEmpty()).collect(Collectors.toList());
         }catch (IOException exception){

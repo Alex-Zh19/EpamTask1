@@ -1,6 +1,6 @@
 package com.alex.task1.exception;
 
-public class ArrayEntityException extends Exception {
+public class ArrayEntityException extends Exception{
     public ArrayEntityException() {
     }
 
