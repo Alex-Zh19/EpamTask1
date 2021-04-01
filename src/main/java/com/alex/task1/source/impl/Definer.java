@@ -9,7 +9,10 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
 
     public double average(ArrayEntity arrayEntity) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int[] array = arrayEntity.getArray();
         double result = 0.0;
@@ -23,10 +26,12 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
     }
 
     public double averageStream(ArrayEntity arrayEntity) throws ArrayEntityException {
-        if (arrayEntity == null || arrayEntity.getSize() <= 0) {
-            throw new ArrayEntityException("Array cannot be null");
+        if (arrayEntity == null ) {
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
         }
-
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
+        }
         double result;
         int[] arr = arrayEntity.getArray();
         result = IntStream.of(arr).average().getAsDouble();
@@ -37,7 +42,10 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
 
     public int sum(ArrayEntity arrayEntity) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int[] array = arrayEntity.getArray();
         int sum = 0;
@@ -50,8 +58,11 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
     }
 
     public int sumStream(ArrayEntity arrayEntity) throws ArrayEntityException {
-        if (arrayEntity == null || arrayEntity.getSize() <= 0) {
-            throw new ArrayEntityException("Array cannot be null");
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int sum;
         int[] arr = arrayEntity.getArray();
@@ -63,7 +74,10 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
 
     public int countOfPositive(ArrayEntity arrayEntity) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int[] array = arrayEntity.getArray();
         int count = 0;
@@ -79,7 +93,10 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
 
     public int countOfPositiveStream(ArrayEntity arrayEntity) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int count;
         int[] arr = arrayEntity.getArray();
@@ -91,7 +108,10 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
 
     public int countOfNegative(ArrayEntity arrayEntity) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int[] array = arrayEntity.getArray();
         int count = 0;
@@ -107,7 +127,10 @@ public class Definer implements com.alex.task1.source.DefinerInterface {
 
     public int countOfNegativeStream(ArrayEntity arrayEntity) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int count;
         int[] arr = arrayEntity.getArray();

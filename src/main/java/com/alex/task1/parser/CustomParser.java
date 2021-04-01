@@ -14,15 +14,15 @@ public class CustomParser {
             throw new ArrayEntityException("Empty string cannot be parsed to Integer :"+string);
         }
         String[] digitsInString = string.split(REG_EXP_TO_SPLIT_STRING);
-        List<Integer> intList = new ArrayList<>();
+        List<Integer> intListFromString = new ArrayList<>();
         try {
             for (String digit : digitsInString) {
-                intList.add(stringToDigit(digit));
+                intListFromString.add(stringToDigit(digit));
             }
         } catch (ArrayEntityException e) {
-
+            throw new ArrayEntityException(e,"invalid string :"+string);
         }
-        Integer[] arrayFromString = intList.toArray(new Integer[intList.size()]);
+        Integer[] arrayFromString = intListFromString.toArray(new Integer[intListFromString.size()]);
         return arrayFromString;
     }
 

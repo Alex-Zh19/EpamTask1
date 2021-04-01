@@ -9,7 +9,13 @@ import java.util.stream.IntStream;
 public class Sleuth implements com.alex.task1.source.SleuthInterface {
 
 
-    public int min(ArrayEntity arrayEntity) {
+    public int min(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
+        }
         int min = 0;
         int[] array = arrayEntity.getArray();
         min = array[0];
@@ -22,16 +28,25 @@ public class Sleuth implements com.alex.task1.source.SleuthInterface {
     }
 
     public int minStream(ArrayEntity array) throws ArrayEntityException {
-        if (array == null || array.getSize() <= 0) {
-            throw new ArrayEntityException("Array cannot be null");
+        if (array == null) {
+            throw new ArrayEntityException("Array cannot be null :" + array.toString());
         }
-        int min;
+        if (array.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + array.toString());
+        }
+
         int[] arr = array.getArray();
-        min = IntStream.of(arr).min().getAsInt();
+        int min = IntStream.of(arr).min().getAsInt();
         return min;
     }
 
-    public int max(ArrayEntity arrayEntity) {
+    public int max(ArrayEntity arrayEntity) throws ArrayEntityException {
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
+        }
         int max = 0;
         int[] array = arrayEntity.getArray();
         max = array[0];
@@ -45,14 +60,15 @@ public class Sleuth implements com.alex.task1.source.SleuthInterface {
     }
 
     public int maxStream(ArrayEntity array) throws ArrayEntityException {
-        if (array == null || array.getSize() <= 0) {
-            throw new ArrayEntityException("Array cannot be null");
+        if (array == null) {
+            throw new ArrayEntityException("Array cannot be null :" + array.toString());
         }
-        int min;
+        if (array.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + array.toString());
+        }
+
         int[] arr = array.getArray();
-        min = IntStream.of(arr).max().getAsInt();
-        return min;
-
-
+        int max = IntStream.of(arr).max().getAsInt();
+        return max;
     }
 }

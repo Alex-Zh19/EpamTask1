@@ -11,12 +11,12 @@ import org.apache.logging.log4j.Logger;
 
 public class Main {
     final static Logger logger = LogManager.getLogger();
-
+/*/data/a*/
     public static void main(String[] args) throws ArrayEntityException {
         CustomReader reader = new CustomReader();
         CustomParser parser = new CustomParser();
         EntityCreator entityCreator = new EntityCreator();
-        String path = "/data/array.txt";
+        String path = "rray.txt";
 
         String stringFromFile = reader.readFile(path);
         Integer[] arrayToCreateEntity = parser.parseStringToInteger(stringFromFile);

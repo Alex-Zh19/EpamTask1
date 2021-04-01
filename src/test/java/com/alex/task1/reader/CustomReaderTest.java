@@ -14,11 +14,11 @@ public class CustomReaderTest {
         String stringActual = "";
         String stringsExpected = "14,45,55";
         CustomReader customReader = new CustomReader();
-
+        String path=getClass().getResource(fileName).getPath();
         //when
 
         try {
-            stringActual = customReader.readFile(fileName);
+            stringActual = customReader.readFile(path);
         } catch (ArrayEntityException exception) {
 
         }

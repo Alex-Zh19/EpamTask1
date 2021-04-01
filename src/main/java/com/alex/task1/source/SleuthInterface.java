@@ -8,7 +8,7 @@ public interface SleuthInterface {
 
     int minStream(ArrayEntity array) throws ArrayEntityException;
 
-    int max(ArrayEntity array);
+    int max(ArrayEntity array) throws ArrayEntityException;
 
     int maxStream(ArrayEntity array) throws ArrayEntityException;
 }

@@ -9,7 +9,10 @@ public class Changer implements com.alex.task1.source.ChangerInterface {
 
     public void changeElements(ArrayEntity arrayEntity, int replace, int by) throws ArrayEntityException {
         if (arrayEntity == null) {
-            throw new ArrayEntityException("Array cannot be null");
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int[] array = arrayEntity.getArray();
         for (int i = 0; i < array.length; i++) {
@@ -22,11 +25,14 @@ public class Changer implements com.alex.task1.source.ChangerInterface {
     }
 
     public void changeElementsStream(ArrayEntity arrayEntity, int replace, int by) throws ArrayEntityException {
-        if (arrayEntity == null || arrayEntity.getSize() <= 0) {
-            throw new ArrayEntityException("Array cannot be null");
+        if (arrayEntity == null) {
+            throw new ArrayEntityException("Array cannot be null :" + arrayEntity.toString());
+        }
+        if (arrayEntity.getSize() <= 0) {
+            throw new ArrayEntityException("Array is empty :" + arrayEntity.toString());
         }
         int[] arr = arrayEntity.getArray();
-        arr = IntStream.of(arr).map(i -> (i == replace) ? (i = by) : (i = i)).toArray();
+        arr = IntStream.of(arr).map(i -> (i == replace) ? (i = by) :i).toArray();
         arrayEntity.setArray(arr);
 
 
