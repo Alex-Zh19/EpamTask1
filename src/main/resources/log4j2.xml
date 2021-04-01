@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="info">
+    <Properties>
+        <Property name="property_console">
+            %d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{5} - %msg%n
+        </Property>
+        <Property name="property_file">
+            %d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{6} - %msg%n
+        </Property>
+    </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{5} - %msg%n"/>
+            <PatternLayout pattern="${property_console}"/>
         </Console>
     </Appenders>
+    <Appenders>
+        <RollingFile name="rollingFile"
+                     append="true"
+                     fileName="logs/ArrayLog4j2.log"
+                     filePattern="ogs/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}.txt">
+            <PatternLayout>
+                <Pattern>"${property_file}"</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy
+                        size="150 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="rollingFile" />
         </Root>
     </Loggers>
 </Configuration>
