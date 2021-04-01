@@ -9,7 +9,10 @@ public class CustomParser {
 
     final static String REG_EXP_TO_SPLIT_STRING = "[\\,\\s]+";
 
-    public Integer[] parseStringToInteger(String string) {
+    public Integer[] parseStringToInteger(String string) throws ArrayEntityException {
+        if(string.isEmpty()){
+            throw new ArrayEntityException("Empty string cannot be parsed to Integer :"+string);
+        }
         String[] digitsInString = string.split(REG_EXP_TO_SPLIT_STRING);
         List<Integer> intList = new ArrayList<>();
         try {

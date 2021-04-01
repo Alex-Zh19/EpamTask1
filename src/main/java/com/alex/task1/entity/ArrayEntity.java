@@ -27,7 +27,7 @@ public class ArrayEntity {
         array = Arrays.copyOf(arr, arr.length);
     }
 
-    public void setArray(Integer[] arr)  {
+    public void setArray(Integer[] arr) {
         array = new int[arr.length];
         for (int i = 0; i < array.length; i++) {
             array[i] = arr[i];

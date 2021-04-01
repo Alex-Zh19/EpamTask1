@@ -1,6 +1,6 @@
 package com.alex.task1.source;
 
-import com.alex.task1.creator.Creator;
+import com.alex.task1.creator.EntityCreator;
 import com.alex.task1.entity.ArrayEntity;
 import com.alex.task1.exception.ArrayEntityException;
 import com.alex.task1.source.impl.Sleuth;
@@ -9,13 +9,13 @@ import org.testng.annotations.Test;
 
 public class SleuthTest {
     @Test
-    public void testMin() {
+    public void testMin() throws ArrayEntityException {
         //given
         Sleuth sleuth = new Sleuth();
         int[] arr = new int[]{5, 7, 12};
-        Creator creator = new Creator();
+        EntityCreator entityCreator = new EntityCreator();
 
-        ArrayEntity array = creator.createArrayEntity(arr);
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 5;
 
         //when
@@ -27,12 +27,12 @@ public class SleuthTest {
     }
 
     @Test
-    public void testMax() {
+    public void testMax() throws ArrayEntityException {
         //given
         Sleuth sleuth = new Sleuth();
         int[] arr = new int[]{5, 7, 12};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 12;
 
         //when
@@ -43,12 +43,12 @@ public class SleuthTest {
     }
 
     @Test
-    public void testMinStream() {
+    public void testMinStream() throws ArrayEntityException {
         //given
         Sleuth sleuth = new Sleuth();
         int[] arr = new int[]{5, 7, 12};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 5;
 
         //when
@@ -63,12 +63,12 @@ public class SleuthTest {
     }
 
     @Test
-    public void testMaxStream() {
+    public void testMaxStream() throws ArrayEntityException {
         //given
         Sleuth sleuth = new Sleuth();
         int[] arr = new int[]{5, 7, 12};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 12;
 
         //when

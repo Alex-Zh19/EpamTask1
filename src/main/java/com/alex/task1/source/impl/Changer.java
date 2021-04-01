@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 public class Changer implements com.alex.task1.source.ChangerInterface {
 
     public void changeElements(ArrayEntity arrayEntity, int replace, int by) throws ArrayEntityException {
-        if(arrayEntity==null){
+        if (arrayEntity == null) {
             throw new ArrayEntityException("Array cannot be null");
         }
         int[] array = arrayEntity.getArray();

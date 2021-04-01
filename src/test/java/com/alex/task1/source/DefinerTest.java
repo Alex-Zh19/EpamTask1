@@ -1,6 +1,6 @@
 package com.alex.task1.source;
 
-import com.alex.task1.creator.Creator;
+import com.alex.task1.creator.EntityCreator;
 import com.alex.task1.entity.ArrayEntity;
 import com.alex.task1.exception.ArrayEntityException;
 import com.alex.task1.source.impl.Definer;
@@ -10,12 +10,12 @@ import static org.testng.Assert.*;
 
 public class DefinerTest {
     @Test
-    public void testAverage() {
+    public void testAverage() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         double expected = 4.5;
         //when
         double actual = 0;
@@ -29,12 +29,12 @@ public class DefinerTest {
     }
 
     @Test
-    public void testSum() {
+    public void testSum() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 18;
 
         //when
@@ -49,12 +49,12 @@ public class DefinerTest {
     }
 
     @Test
-    public void testCountOfPositive() {
+    public void testCountOfPositive() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6, -1, 0};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 3;
 
         //when
@@ -69,12 +69,12 @@ public class DefinerTest {
     }
 
     @Test
-    public void testCountOfNegative() {
+    public void testCountOfNegative() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6, -1, 0};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 2;
         //when
         int actual = 0;
@@ -88,12 +88,12 @@ public class DefinerTest {
     }
 
     @Test
-    public void testAverageStream() {
+    public void testAverageStream() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         double expected = 4.5;
         //when
         double actual = 0;
@@ -107,12 +107,12 @@ public class DefinerTest {
     }
 
     @Test
-    public void testSumStream() {
+    public void testSumStream() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 18;
 
         //when
@@ -127,12 +127,12 @@ public class DefinerTest {
     }
 
     @Test
-    public void testCountOfPositiveStream() {
+    public void testCountOfPositiveStream() throws ArrayEntityException {
         //given
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6, -1, 0};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 3;
 
         //when
@@ -147,11 +147,11 @@ public class DefinerTest {
     }
 
     @Test
-    public void testCountOfNegativeStream() {
+    public void testCountOfNegativeStream() throws ArrayEntityException {
         Definer definer = new Definer();
         int[] arr = new int[]{5, 7, 12, -6, -1, 0};
-        Creator creator = new Creator();
-        ArrayEntity array = creator.createArrayEntity(arr);
+        EntityCreator entityCreator = new EntityCreator();
+        ArrayEntity array = entityCreator.createArrayEntity(arr);
         int expected = 2;
         //when
         int actual = 0;

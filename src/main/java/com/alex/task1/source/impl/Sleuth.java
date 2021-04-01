@@ -33,13 +33,13 @@ public class Sleuth implements com.alex.task1.source.SleuthInterface {
 
     public int max(ArrayEntity arrayEntity) {
         int max = 0;
-        int[]array= arrayEntity.getArray();
-            max = array[0];
-            for (int i = 1; i < array.length; i++) {
-                if (array[i] > max) {
-                    max = array[i];
-                }
+        int[] array = arrayEntity.getArray();
+        max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
             }
+        }
 
         return max;
     }

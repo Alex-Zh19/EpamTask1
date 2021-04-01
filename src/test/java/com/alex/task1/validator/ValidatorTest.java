@@ -11,9 +11,9 @@ public class ValidatorTest {
     public void testTestValidateStringTrue() {
         //given
         String str3 = "145,45,55";
-        Validator validator = new Validator();
+
         //when
-        boolean bool = validator.validateString(str3);
+        boolean bool = CustomValidator.validateString(str3);
 
         //then
         assertTrue(bool);
@@ -24,9 +24,8 @@ public class ValidatorTest {
         //given
         String str1 = "1b,5,8";
 
-        Validator validator = new Validator();
         //when
-        boolean bool = validator.validateString(str1);
+        boolean bool = CustomValidator.validateString(str1);
 
         //then
         assertFalse(bool);

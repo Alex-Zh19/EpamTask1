@@ -4,18 +4,21 @@ import com.alex.task1.entity.ArrayEntity;
 import com.alex.task1.exception.ArrayEntityException;
 
 
-public class Creator {
+public class EntityCreator {
 
-    public ArrayEntity createArrayEntity(Integer[] arrayToCreateEntity)throws ArrayEntityException  {
-        if(arrayToCreateEntity==null){
-            throw new ArrayEntityException("Array cannot be null");
+    public ArrayEntity createArrayEntity(Integer[] arrayToCreateEntity) throws ArrayEntityException {
+        if (arrayToCreateEntity == null) {
+            throw new ArrayEntityException("Array cannot be null" + arrayToCreateEntity.toString());
         }
         ArrayEntity newArrayEntity = new ArrayEntity(arrayToCreateEntity.length);
         newArrayEntity.setArray(arrayToCreateEntity);
         return newArrayEntity;
     }
 
-    public ArrayEntity createArrayEntity(int[] arrayToCreateEntity) {
+    public ArrayEntity createArrayEntity(int[] arrayToCreateEntity) throws ArrayEntityException {
+        if (arrayToCreateEntity == null) {
+            throw new ArrayEntityException("Array cannot be null" + arrayToCreateEntity.toString());
+        }
         ArrayEntity newArrayEntity = new ArrayEntity(arrayToCreateEntity.length);
         newArrayEntity.setArray(arrayToCreateEntity);
         return newArrayEntity;
@@ -23,7 +26,7 @@ public class Creator {
 
     public ArrayEntity createArrayEntity(int size) throws ArrayEntityException {
         if (size < 0) {
-            throw new ArrayEntityException("Size cannot be less than 0");
+            throw new ArrayEntityException("Size cannot be less than 0" + size);
         }
         ArrayEntity newArrayEntity = new ArrayEntity(size);
         int[] array = new int[size];
