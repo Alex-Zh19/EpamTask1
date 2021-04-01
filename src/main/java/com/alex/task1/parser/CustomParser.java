@@ -7,10 +7,10 @@ import java.util.List;
 
 public class CustomParser {
 
-    final static String REGEXPTOSPLITSTRING = "[\\,\\s]+";
+    final static String REG_EXP_TO_SPLIT_STRING = "[\\,\\s]+";
 
     public Integer[] parseStringToInteger(String string) {
-        String[] digitsInString = string.split(REGEXPTOSPLITSTRING);
+        String[] digitsInString = string.split(REG_EXP_TO_SPLIT_STRING);
         List<Integer> intList = new ArrayList<>();
         try {
             for (String digit : digitsInString) {

@@ -1,6 +1,5 @@
 package com.alex.task1.entity;
 
-import com.alex.task1.exception.ArrayEntityException;
 
 import java.util.Arrays;
 

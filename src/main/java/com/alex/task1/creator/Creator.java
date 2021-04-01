@@ -6,7 +6,10 @@ import com.alex.task1.exception.ArrayEntityException;
 
 public class Creator {
 
-    public ArrayEntity createArrayEntity(Integer[] arrayToCreateEntity)  {
+    public ArrayEntity createArrayEntity(Integer[] arrayToCreateEntity)throws ArrayEntityException  {
+        if(arrayToCreateEntity==null){
+            throw new ArrayEntityException("Array cannot be null");
+        }
         ArrayEntity newArrayEntity = new ArrayEntity(arrayToCreateEntity.length);
         newArrayEntity.setArray(arrayToCreateEntity);
         return newArrayEntity;
