@@ -1,0 +1,29 @@
+"2021-04-02 00:12:02 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-02 00:12:02 [main] ERROR com.alex.task1.reader.CustomReader - file isn't exist :rray.txt
+""2021-04-02 00:12:49 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-02 00:12:49 [main] ERROR com.alex.task1.reader.CustomReader - file isn't exist :/data/array.txt.txt
+""2021-04-02 00:13:01 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-02 00:13:01 [main] ERROR com.alex.task1.reader.CustomReader - file isn't exist :data/array.txt.txt
+""2021-04-02 00:16:34 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-02 00:16:34 [main] ERROR com.alex.task1.reader.CustomReader - file isn't exist :data/array.txt.txt
+""2021-04-02 00:16:46 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-02 00:16:46 [main] ERROR com.alex.task1.reader.CustomReader - file isn't exist :/data/array.txt.txt
+""2021-04-03 12:24:41 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-03 12:26:04 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-03 12:26:25 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-03 12:27:23 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-03 12:28:06 [main] INFO  com.alex.task1.main.Main - start of main
+""2021-04-03 12:28:06 [main] INFO  com.alex.task1.main.Main - [14, 45, 55]
+""2021-04-03 12:28:06 [main] INFO  com.alex.task1.main.Main - end of main
+""${property_file}""${property_file}""${property_file}"2021-04-03 12:31:51 [main] INFO  com.alex.task1.main.Main - start of main
+2021-04-03 12:31:51 [main] INFO  com.alex.task1.main.Main - [14, 45, 55]
+2021-04-03 12:31:51 [main] INFO  com.alex.task1.main.Main - end of main
+2021-04-03 12:43:28 [main] INFO  com.alex.task1.main.Main - start of main
+2021-04-03 12:43:28 [main] INFO  com.alex.task1.main.Main - ArrayEntity is :[14, 45, 55, 76, 88]
+2021-04-03 12:43:28 [main] INFO  com.alex.task1.main.Main - end of main
+2021-04-03 13:04:24 [main] INFO  com.alex.task1.main.Main - start of main
+2021-04-03 13:04:24 [main] INFO  com.alex.task1.main.Main - ArrayEntity is :[14, 45, 55, 76, 88]
+2021-04-03 13:04:24 [main] INFO  com.alex.task1.main.Main - end of main
+2021-04-03 13:04:34 [main] INFO  com.alex.task1.main.Main - start of main
+2021-04-03 13:04:34 [main] INFO  com.alex.task1.main.Main - ArrayEntity is :[14, 45, 55, 76, 88]
+2021-04-03 13:04:34 [main] INFO  com.alex.task1.main.Main - end of main

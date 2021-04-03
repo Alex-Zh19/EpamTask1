@@ -18,11 +18,11 @@ public class CustomReader {
     final static Logger logger=LogManager.getLogger();
     public String readFile(String fileName) throws ArrayEntityException {
         if(fileName==null){
-            logger.log(Level.ERROR,"Filepath is null :"+fileName);
-            throw new ArrayEntityException("Filepath is null :"+fileName);
+            logger.log(Level.ERROR,"Filepath is null");
+            throw new ArrayEntityException("Filepath is null");
         }
         File file= new File(fileName);
-        if(!file.isFile()){
+        if(!file.isFile()||!file.exists()){
             logger.log(Level.ERROR,"file isn't exist :"+fileName);
             throw new ArrayEntityException("file isn't exist :"+fileName);
         }
