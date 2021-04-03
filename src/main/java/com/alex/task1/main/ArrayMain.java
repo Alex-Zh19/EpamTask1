@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.net.URL;
 
-public class Main {
+public class ArrayMain {
     final static Logger logger = LogManager.getLogger();
     final static String PATH_TO_FILE = "data/array.txt";
 
