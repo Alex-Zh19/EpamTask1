@@ -28,12 +28,12 @@ public class Main {
             if (pathToFileUrl == null) {
                 throw new ArrayEntityException("path to file is null");
             }
-            File fileWithData=new File(pathToFileUrl.getFile());
+            File fileWithData = new File(pathToFileUrl.getFile());
             String stringFromFile = reader.readFile(fileWithData.getAbsolutePath());
             Integer[] arrayToCreateEntity = parser.parseStringToInteger(stringFromFile);
             ArrayEntity arrayEntity = entityCreator.createArrayEntity(arrayToCreateEntity);
 
-            logger.log(Level.INFO,"ArrayEntity is :"+ arrayEntity);
+            logger.log(Level.INFO, "ArrayEntity is :" + arrayEntity);
             logger.log(Level.INFO, "end of main");
         }
     }
