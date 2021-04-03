@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="info">
     <Appenders>
-        <Console name="console" target="SYSTEM_OUT">
+        <Console name="console" target="system-out">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{5} - %msg%n"/>
         </Console>
 
-        <RollingFile name="rollingFile"
+        <RollingFile name="rolling-file"
                      fileName="logs/ArrayLog4j2.log"
                      filePattern="ogs/${date:yyyy-MM-dd}/%d{yyyy-MM-dd_HH-mm}.txt">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{6} - %msg%n"/>
@@ -19,7 +19,7 @@
     <Loggers>
         <Root level="info">
             <AppenderRef ref="console"/>
-            <AppenderRef ref="rollingFile"/>
+            <AppenderRef ref="rolling-file"/>
         </Root>
     </Loggers>
 </Configuration>
