@@ -30,3 +30,6 @@
 2021-04-03 13:50:05 [main] INFO  com.alex.task1.main.ArrayMain - start of main
 2021-04-03 13:50:05 [main] INFO  com.alex.task1.main.ArrayMain - ArrayEntity is :[14, 45, 55, 76, 88]
 2021-04-03 13:50:05 [main] INFO  com.alex.task1.main.ArrayMain - end of main
+2021-04-03 22:32:42 [main] INFO  com.alex.task1.main.ArrayMain - start of main
+2021-04-03 22:32:42 [main] INFO  com.alex.task1.main.ArrayMain - ArrayEntity is :[14, 45, 55, 76, 88]
+2021-04-03 22:32:42 [main] INFO  com.alex.task1.main.ArrayMain - end of main

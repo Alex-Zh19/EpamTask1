@@ -28,8 +28,7 @@ public class ArrayMain {
             if (pathToFileUrl == null) {
                 throw new ArrayEntityException("path to file is null");
             }
-            File fileWithData = new File(pathToFileUrl.getFile());
-            String stringFromFile = reader.readFile(fileWithData.getAbsolutePath());
+            String stringFromFile = reader.readFile(new File(pathToFileUrl.getFile()).getAbsolutePath());
             Integer[] arrayToCreateEntity = parser.parseStringToInteger(stringFromFile);
             ArrayEntity arrayEntity = entityCreator.createArrayEntity(arrayToCreateEntity);
 
